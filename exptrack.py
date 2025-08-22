@@ -35,6 +35,22 @@ def filter_expenses_by_category(category):
         print(f"Expenses for category '{category}':")
         for expense in filtered:
             print(f"- {expense['amount']} ({expense['category']})")
+ from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+
+def export_to_pdf(expenses, filename="expenses.pdf"):
+    c = canvas.Canvas(filename, pagesize=letter)
+    c.drawString(100, 750, "Expense Report")
+    y = 700
+    for expense in expenses:
+        c.drawString(100, y, f"{expense['category']}: ${expense['amount']}")
+        y -= 20
+    c.save()
+    print(f"Expense report saved to {filename}")
+
+# Example usage
+expenses = [{"category": "Food", "amount": 100}, {"category": "Transport", "amount": 50}]
+export_to_pdf(expenses)           
 
 # Example usage
 filter_expenses_by_category("Food")
