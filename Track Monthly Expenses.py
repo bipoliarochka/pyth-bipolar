@@ -1,5 +1,3 @@
-# Repository: python-expense-tracker
-# New Feature: Track monthly expenses
 
 expenses = []
 
