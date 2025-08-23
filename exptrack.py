@@ -1,5 +1,3 @@
-### **Repository 10: Expense Tracker**
-```python
 # Repository: python-expense-tracker
 # Description: Track expenses and generate reports.
 
